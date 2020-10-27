@@ -1,5 +1,7 @@
+import setting from '../../env';
+
 export const Options = {
-	routePrefix: '/documentation',
+	routePrefix: setting.LINK_DOCS,
 	exposeRoute: true,
 	swagger: {
 		info: {

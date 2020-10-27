@@ -1,4 +1,4 @@
-import app from '../../app/index';
+import app from '../../index';
 import * as dbHandler from './../dbHandler';
 
 describe('Testing the Cars API', () => {

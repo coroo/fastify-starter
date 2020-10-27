@@ -2,18 +2,18 @@ import boom from 'boom';
 import Car from '../models/Car';
 import { Document } from 'mongoose';
 import { ServerResponse } from 'http';
-import { FastifyRequest, FastifyReply } from 'fastify';
 
-export const getCars = async (req: FastifyRequest, reply: FastifyReply<ServerResponse>): Promise<Document[]> => {
+export const getCars = async (req: any, reply: any): Promise<Document[]> => {
 	try {
 		const cars = await Car.find();
+		reply.send(cars);
 		return cars;
 	} catch (err) {
 		throw boom.boomify(err);
 	}
 };
 
-export const getSingleCar = async (req: FastifyRequest, reply: FastifyReply<ServerResponse>) => {
+export const getSingleCar = async (req: any, reply: any) => {
 	try {
 		const id = req.params.id;
 		const car = await Car.findById(id);
@@ -23,7 +23,7 @@ export const getSingleCar = async (req: FastifyRequest, reply: FastifyReply<Serv
 	}
 };
 
-export const addCar = async (req: FastifyRequest, reply: FastifyReply<ServerResponse>) => {
+export const addCar = async (req: any, reply: any) => {
 	try {
 		const car = new Car(req.body);
 		return await car.save();
@@ -32,7 +32,7 @@ export const addCar = async (req: FastifyRequest, reply: FastifyReply<ServerResp
 	}
 };
 
-export const updateCar = async (req: FastifyRequest, reply: FastifyReply<ServerResponse>) => {
+export const updateCar = async (req: any, reply: any) => {
 	try {
 		const id = req.params.id;
 		const car = req.body;
@@ -44,7 +44,7 @@ export const updateCar = async (req: FastifyRequest, reply: FastifyReply<ServerR
 	}
 };
 
-export const deleteCar = async (req: FastifyRequest, reply: FastifyReply<ServerResponse>) => {
+export const deleteCar = async (req: any, reply: any) => {
 	try {
 		const id = req.params.id;
 		const car = await Car.findByIdAndRemove(id);

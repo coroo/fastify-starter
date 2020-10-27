@@ -7,7 +7,7 @@
         ],
         "allowJs": true,
         "outDir": "dist",
-        "rootDir": "app",
+        "rootDir": "",
         "strict": true,
         "noImplicitAny": true,
         "esModuleInterop": true,
