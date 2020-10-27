@@ -1,4 +1,4 @@
-import setting from '../../env';
+import setting from '../env';
 
 export const Options = {
 	routePrefix: setting.LINK_DOCS,
