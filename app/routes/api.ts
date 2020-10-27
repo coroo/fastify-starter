@@ -1,4 +1,4 @@
-import * as carsController from '../controllers/carsController';
+import * as carsController from '../deliveries/carsController';
 import { RouteOptions } from 'fastify';
 import { AddCarSchema } from './documentation/carsApi';
 
