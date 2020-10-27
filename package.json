@@ -9,7 +9,7 @@
         "build": "rimraf ./build && tsc",
         "test": "cross-env NODE_ENV=test jest --detectOpenHandles --forceExit",
         "coverage": "cat ./test/coverage/lcov.info | coveralls",
-        "lint": "eslint --fix {src,test,config}/**/*.{js,ts}",
+        "lint": "eslint --fix {app,test,config}/**/*.{js,ts}",
         "prettier": "prettier",
         "prettier:base": "npm run prettier **/*.{js,json,scss,md,ts,html,component.html}",
         "prettier:write": "npm run prettier:base --write",
