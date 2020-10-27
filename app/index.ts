@@ -1,6 +1,6 @@
 import * as fastify from 'fastify';
 import mongoose from 'mongoose';
-import routes from './routes';
+import routes from './routes/api';
 import { Options } from './config/swagger';
 import { config } from './config';
 import swagger from 'fastify-swagger';
