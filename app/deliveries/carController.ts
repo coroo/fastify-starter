@@ -1,12 +1,11 @@
 import boom from 'boom';
 import * as CarService from '../usecases/carService';
-import { Document } from 'mongoose';
 
-export const getCars = async (req: any, reply: any): Promise<Document[]> => {
+export const getCars = async (req: any, reply: any) => {
 	try {
 		const cars = await CarService.getCars();
-		// reply.send(cars);
-		return cars;
+		reply.send(cars);
+		// return cars;
 	} catch (err) {
 		throw boom.boomify(err);
 	}

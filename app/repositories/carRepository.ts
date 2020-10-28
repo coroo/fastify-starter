@@ -11,7 +11,7 @@ export const getCars = async (): Promise<Document[]> => {
 	}
 };
 
-export const getSingleCar = async (id: string) => {
+export const getSingleCar = async (id: string): Promise<Document | null> => {
 	try {
 		const car = await Car.findById(id);
 		return car;
@@ -20,7 +20,7 @@ export const getSingleCar = async (id: string) => {
 	}
 };
 
-export const addCar = async (newData: {}) => {
+export const addCar = async (newData: {}): Promise<Document | null> => {
 	try {
 		const car = new Car(newData);
 		return await car.save();
@@ -29,7 +29,7 @@ export const addCar = async (newData: {}) => {
 	}
 };
 
-export const updateCar = async (updateData: {}, id: string) => {
+export const updateCar = async (updateData: {}, id: string): Promise<Document | null> => {
 	try {
 		const update = await Car.findByIdAndUpdate(id, updateData, { new: true });
 		return update;
@@ -38,7 +38,7 @@ export const updateCar = async (updateData: {}, id: string) => {
 	}
 };
 
-export const deleteCar = async (id: string) => {
+export const deleteCar = async (id: string): Promise<Document | null> => {
 	try {
 		const car = await Car.findByIdAndRemove(id);
 		return car;

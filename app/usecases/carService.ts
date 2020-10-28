@@ -11,7 +11,7 @@ export const getCars = async (): Promise<Document[]> => {
 	}
 };
 
-export const getSingleCar = async (id: string) => {
+export const getSingleCar = async (id: string): Promise<Document | null> => {
 	try {
 		return await CarRepository.getSingleCar(id);
 	} catch (err) {
@@ -19,7 +19,7 @@ export const getSingleCar = async (id: string) => {
 	}
 };
 
-export const addCar = async (newData: {}) => {
+export const addCar = async (newData: {}): Promise<Document | null> => {
 	try {
 		return await CarRepository.addCar(newData);
 	} catch (err) {
@@ -27,7 +27,7 @@ export const addCar = async (newData: {}) => {
 	}
 };
 
-export const updateCar = async (updateData: {}, id: string) => {
+export const updateCar = async (updateData: {}, id: string): Promise<Document | null> => {
 	try {
 		const update = await CarRepository.updateCar(updateData, id);
 		return update;
@@ -36,7 +36,7 @@ export const updateCar = async (updateData: {}, id: string) => {
 	}
 };
 
-export const deleteCar = async (id: string) => {
+export const deleteCar = async (id: string): Promise<Document | null> => {
 	try {
 		return await CarRepository.deleteCar(id);
 	} catch (err) {
