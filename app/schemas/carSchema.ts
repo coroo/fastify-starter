@@ -4,6 +4,7 @@ export const AddCarSchema = {
 	summary: 'Creates new car with given values',
 	body: {
 		type: 'object',
+		required: ['title', 'brand', 'price'],
 		properties: {
 			title: { type: 'string' },
 			brand: { type: 'string' },
