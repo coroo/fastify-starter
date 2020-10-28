@@ -1,32 +1,32 @@
-import * as carsController from '../deliveries/carsController';
+import * as carController from '../deliveries/carController';
 import { RouteOptions } from 'fastify';
 import { AddCarSchema } from '../schemas/carSchema';
 
 const getCarsRoute: RouteOptions = {
 	method: 'GET',
 	url: '/api/cars',
-	handler: carsController.getCars,
+	handler: carController.getCars,
 };
 const getCarRoute: RouteOptions = {
 	method: 'GET',
 	url: '/api/cars/:id',
-	handler: carsController.getSingleCar,
+	handler: carController.getSingleCar,
 };
 const postCarRoute: RouteOptions = {
 	method: 'POST',
 	url: '/api/cars',
-	handler: carsController.addCar,
+	handler: carController.addCar,
 	schema: AddCarSchema,
 };
 const putCarRoute: RouteOptions = {
 	method: 'PUT',
 	url: '/api/cars/:id',
-	handler: carsController.updateCar,
+	handler: carController.updateCar,
 };
 const deleteCarRoute: RouteOptions = {
 	method: 'DELETE',
 	url: '/api/cars/:id',
-	handler: carsController.deleteCar,
+	handler: carController.deleteCar,
 };
 
 const routes = [getCarsRoute, getCarRoute, postCarRoute, putCarRoute, deleteCarRoute];

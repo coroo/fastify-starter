@@ -1,6 +1,6 @@
 import boom from 'boom';
 import { Document } from 'mongoose';
-import * as CarRepository from '../repositories/carsRepository';
+import * as CarRepository from '../repositories/carRepository';
 
 export const getCars = async (): Promise<Document[]> => {
 	try {
