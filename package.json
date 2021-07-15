@@ -40,7 +40,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/gmarokov/node-fastify-mongo-api.git"
+        "url": "git://github.com/coroo/fastify-starter.git"
     },
     "dependencies": {
         "@types/boom": "^7.3.0",

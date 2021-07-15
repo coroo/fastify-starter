@@ -13,7 +13,7 @@ export const Options = {
 			url: 'https://swagger.io',
 			description: 'Find more info here',
 		},
-		host: 'localhost',
+		host: setting.APP_URL + ':' + setting.PORT,
 		schemes: ['http'],
 		consumes: ['application/json'],
 		produces: ['application/json'],
