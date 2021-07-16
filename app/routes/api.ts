@@ -1,7 +1,12 @@
-import * as carController from '../deliveries/carController';
+import { CarController } from '../deliveries/carController';
+import { CarService } from '../usecases/carService';
 import { RouteOptions } from 'fastify';
 import { AddCarSchema } from '../schemas/carSchema';
 import setting from '../../env';
+import { CarRepository } from '../repositories/carRepository';
+
+const carController: CarController = new CarController();
+// const carController: CarController = new CarController(new CarService(new CarRepository()));
 
 const getCarsRoute: RouteOptions = {
 	method: 'GET',

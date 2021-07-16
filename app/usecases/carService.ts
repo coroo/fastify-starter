@@ -1,45 +1,53 @@
 import boom from 'boom';
 import { Document } from 'mongoose';
-import * as CarRepository from '../repositories/carRepository';
+import { CarRepository } from '../repositories/carRepository';
 
-export const getCars = async (): Promise<Document[]> => {
-	try {
-		const cars = await CarRepository.getCars();
-		return cars;
-	} catch (err) {
-		throw boom.boomify(err);
+export class CarService {
+	carRepository: CarRepository;
+	constructor() {
+		this.carRepository = new CarRepository();
 	}
-};
 
-export const getSingleCar = async (id: string): Promise<Document | null> => {
-	try {
-		return await CarRepository.getSingleCar(id);
-	} catch (err) {
-		throw boom.boomify(err);
+	public async getCars(): Promise<Document[]> {
+		try {
+			console.log("ME SHOMEASASOIO 2 HERE");
+			const cars = await this.carRepository.getCars();
+			return cars;
+		} catch (err) {
+			throw boom.boomify(err);
+		}
 	}
-};
 
-export const addCar = async (newData: {}): Promise<Document | null> => {
-	try {
-		return await CarRepository.addCar(newData);
-	} catch (err) {
-		throw boom.boomify(err);
+	public async getSingleCar(id: string): Promise<Document | null> {
+		try {
+			return await this.carRepository.getSingleCar(id);
+		} catch (err) {
+			throw boom.boomify(err);
+		}
 	}
-};
 
-export const updateCar = async (updateData: {}, id: string): Promise<Document | null> => {
-	try {
-		const update = await CarRepository.updateCar(updateData, id);
-		return update;
-	} catch (err) {
-		throw boom.boomify(err);
+	public async addCar(newData: {}): Promise<Document | null> {
+		try {
+			return await this.carRepository.addCar(newData);
+		} catch (err) {
+			throw boom.boomify(err);
+		}
 	}
-};
 
-export const deleteCar = async (id: string): Promise<Document | null> => {
-	try {
-		return await CarRepository.deleteCar(id);
-	} catch (err) {
-		throw boom.boomify(err);
+	public async updateCar(updateData: {}, id: string): Promise<Document | null> {
+		try {
+			const update = await this.carRepository.updateCar(updateData, id);
+			return update;
+		} catch (err) {
+			throw boom.boomify(err);
+		}
 	}
-};
+
+	public async deleteCar(id: string): Promise<Document | null> {
+		try {
+			return await this.carRepository.deleteCar(id);
+		} catch (err) {
+			throw boom.boomify(err);
+		}
+	}
+}
